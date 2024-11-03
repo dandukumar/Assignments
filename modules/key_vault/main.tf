@@ -5,7 +5,7 @@ resource "azurerm_key_vault" "example" {
   resource_group_name = var.resource_group_name
   sku_name            = var.sku_name
   tenant_id           = var.tenant_id
-  #soft_delete_enabled             = var.soft_delete_enabled
+  # soft_delete_enabled             = var.soft_delete_enabled
   purge_protection_enabled        = var.purge_protection_enabled
   enabled_for_disk_encryption     = var.enabled_for_disk_encryption
   enabled_for_deployment          = var.enabled_for_deployment
@@ -21,4 +21,8 @@ resource "azurerm_key_vault" "example" {
 
 output "key_vault_id" {
   value = azurerm_key_vault.example.id
+}
+
+output "key_vault_uri" {
+  value = azurerm_key_vault.example.vault_uri
 }

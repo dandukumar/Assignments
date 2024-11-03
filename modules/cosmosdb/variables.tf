@@ -1,35 +1,45 @@
-variable "cosmosdb_account" {
+# modules/cosmosdb/variables.tf
+
+variable "cosmosdb_account_name" {
   description = "The name of the Cosmos DB account."
   type        = string
 }
 
-variable "resource_group_name" {
-  description = "The name of the resource group."
+variable "location" {
+  description = "Location of the Cosmos DB account."
   type        = string
 }
 
-variable "location" {
-  description = "The location where the resources will be created."
+variable "resource_group_name" {
+  description = "The name of the Resource Group."
   type        = string
+}
+
+variable "consistency_level" {
+  description = "The consistency level of the Cosmos DB account."
+  type        = string
+  default     = "Session"
+}
+
+variable "enable_automatic_failover" {
+  description = "Enable automatic failover for the Cosmos DB account."
+  type        = bool
+  default     = false
+}
+
+variable "is_virtual_network_filter_enabled" {
+  description = "Enables virtual network filter for the Cosmos DB account."
+  type        = bool
+  default     = false
 }
 
 variable "database_name" {
-  description = "The name of the Cosmos DB SQL database."
+  description = "The name of the SQL database within the Cosmos DB account."
   type        = string
 }
 
-variable "container_name" {
-  description = "The name of the Cosmos DB SQL container."
-  type        = string
-}
-
-variable "partition_key_path" {
-  description = "The partition key path for the container."
-  type        = string
-}
-
-variable "throughput" {
-  description = "The throughput for the container."
-  type        = number
-  default     = 400
+variable "tags" {
+  description = "Tags for the Cosmos DB account."
+  type        = map(string)
+  default     = {}
 }

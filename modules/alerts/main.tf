@@ -48,7 +48,8 @@ resource "azurerm_monitor_metric_alert" "metric_alert" {
   description         = "Alert for ${var.metric_name}"
   severity            = 3
   #evaluation_frequency = "${var.frequency}m"
-  window_size = "${var.frequency}m"
+  #window_size = "${var.frequency}m"
+  #window_size = var.frequency 
 
   criteria {
     metric_namespace = "Microsoft.Compute/virtualMachines" # Adjust based on resource type
@@ -61,6 +62,6 @@ resource "azurerm_monitor_metric_alert" "metric_alert" {
   # action {
   #   action_group_id = var.alert_action_group_ids
   # }
-  action_group_id = var.alert_action_group_ids[0]
+  #action_group_id = var.alert_action_group_ids[0]
 
 }
